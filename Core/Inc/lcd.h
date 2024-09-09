@@ -79,13 +79,7 @@ typedef enum {
 
 
 
-/**
- * @brief  Initializes SSD1306 LCD
- * @param  None
- * @retval Initialization status:
- *           - 0: LCD was not detected on I2C port
- *           - > 0: LCD initialized OK and ready to use
- */
+
 uint8_t SSD1306_Init(void);
 
 /** 
@@ -160,67 +154,7 @@ char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color);
  * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
  * @retval None
  */
-void SSD1306_DrawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, SSD1306_COLOR_t c);
 
-/**
- * @brief  Draws rectangle on LCD
- * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: Top left X start point. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y: Top left Y start point. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  w: Rectangle width in units of pixels
- * @param  h: Rectangle height in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
- * @retval None
- */
-void SSD1306_DrawRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, SSD1306_COLOR_t c);
-
-/**
- * @brief  Draws filled rectangle on LCD
- * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: Top left X start point. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y: Top left Y start point. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  w: Rectangle width in units of pixels
- * @param  h: Rectangle height in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
- * @retval None
- */
-void SSD1306_DrawFilledRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, SSD1306_COLOR_t c);
-
-/**
- * @brief  Draws triangle on LCD
- * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x1: First coordinate X location. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y1: First coordinate Y location. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  x2: Second coordinate X location. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y2: Second coordinate Y location. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  x3: Third coordinate X location. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y3: Third coordinate Y location. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
- * @retval None
- */
-void SSD1306_DrawTriangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, SSD1306_COLOR_t color);
-
-/**
- * @brief  Draws circle to STM buffer
- * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: X location for center of circle. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y: Y location for center of circle. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  r: Circle radius in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
- * @retval None
- */
-void SSD1306_DrawCircle(int16_t x0, int16_t y0, int16_t r, SSD1306_COLOR_t c);
-
-/**
- * @brief  Draws filled circle to STM buffer
- * @note   @ref SSD1306_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: X location for center of circle. Valid input is 0 to SSD1306_WIDTH - 1
- * @param  y: Y location for center of circle. Valid input is 0 to SSD1306_HEIGHT - 1
- * @param  r: Circle radius in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SSD1306_COLOR_t enumeration
- * @retval None
- */
-void SSD1306_DrawFilledCircle(int16_t x0, int16_t y0, int16_t r, SSD1306_COLOR_t c);
 
 
 

@@ -1,6 +1,28 @@
 
 
-#include "ssd1306.h"
+/**
+ * original author:  Tilen Majerle<tilen@majerle.eu>
+ * modification for STM32f10x: Alexander Lutsai<s.lyra@ya.ru>
+
+   ----------------------------------------------------------------------
+   	Copyright (C) Alexander Lutsai, 2016
+    Copyright (C) Tilen Majerle, 2015
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   ----------------------------------------------------------------------
+ */
+#include "lcd.h"
 
 extern I2C_HandleTypeDef hi2c1;
 #define SSD1306_I2C &hi2c1
@@ -225,7 +247,6 @@ char SSD1306_Puts(char* str, FontDef_t* Font, SSD1306_COLOR_t color) {
 
 
 
-
 void SSD1306_DrawBitmap(int16_t x, int16_t y, const unsigned char* bitmap, int16_t w, int16_t h, uint16_t color)
 {
 
@@ -265,15 +286,7 @@ void SSD1306_OFF(void) {
 	SSD1306_WRITECOMMAND(0xAE);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-//  _____ ___   _____
-// |_   _|__ \ / ____|
-//   | |    ) | |
-//   | |   / /| |
-//  _| |_ / /_| |____
-// |_____|____|\_____|
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 void ssd1306_I2C_Init() {
 	//MX_I2C1_Init();
@@ -303,3 +316,4 @@ void ssd1306_I2C_Write(uint8_t address, uint8_t reg, uint8_t data) {
 	dt[1] = data;
 	HAL_I2C_Master_Transmit(SSD1306_I2C, address, dt, 2, 10);
 }
+
